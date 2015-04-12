@@ -14,10 +14,11 @@ module.exports = function(grunt) {
     concat: {
       options: {
         banner: '<%= banner %>',
-        stripBanners: true
+        stripBanners: true,
+        sourceMap: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
+        src: ['frontend/app/**/*.js'],
         dest: 'frontend/dist/<%= pkg.name %>.js'
       }
     },
@@ -52,13 +53,14 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       },
       lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
+        src: ['frontend/app/**/*.js', 'frontend/test/**/*.js']
       }
     },
     express: {
       dev: {
         options: {
-          script: './server.js'
+          script: './server.js',
+          port: 8000
         }
       },
       prod: {
@@ -75,7 +77,7 @@ module.exports = function(grunt) {
       },
       express: {
         files: [ 'backend/**/*.js', 'frontend/**/*.js' ],
-        tasks: [ 'express:dev' ],
+        tasks: [ 'build', 'jshint', 'express:dev' ],
         options: {
           spawn: false
         }
