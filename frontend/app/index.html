@@ -12,10 +12,13 @@
     <title>BLL Community</title>
 
     <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="vendor/wolfram/css/style.css">
+    <link rel="stylesheet" href="vendor/wolfram/css/plugins/animate.css">
+    <link rel="stylesheet" href="vendor/wolfram/css/plugins/lightbox.css">
+    <link rel="stylesheet" href="vendor/wolfram/css/plugins/jquery.fullPage.css">
     <link rel="stylesheet" href="vendor/wolfram/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="vendor/wolfram/fonts/open-iconic/font/css/open-iconic-bootstrap.css">
+
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300">
 
@@ -27,29 +30,36 @@
     <script defer type="text/javascript" src="vendor/jquery/dist/jquery.js" ></script>
     <script defer type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.js" ></script>
     <script defer type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js" ></script>
-    <script defer type="text/javascript" src="vendor/jquery-parallax/scripts/jquery.parallax-1.1.3.js"></script>
-    <script defer type="text/javascript" src="vendor/wolfram/js/plugins/smoothscroll.js" ></script>
-    <script defer type="text/javascript" src="vendor/wolfram/js/plugins/jquery.waypoints.min.js" ></script>
+
+    <script defer type="text/javascript" src="vendor/wolfram/js/plugins/jquery.slimscroll.min.js"></script>
+    <script defer type="text/javascript" src="vendor/wolfram/js/plugins/jquery.fullPage.min.js"></script>
+    <script defer type="text/javascript" src="vendor/wolfram/js/plugins/jquery.backstretch.min.js"></script>
     <script defer type="text/javascript" src="vendor/wolfram/js/plugins/imagesloaded.pkgd.min.js" ></script>
     <script defer type="text/javascript" src="vendor/wolfram/js/plugins/isotope.pkgd.min.js" ></script>
     <script defer type="text/javascript" src="vendor/wolfram/js/plugins/lightbox.min.js" ></script>
     <script defer type="text/javascript" src="vendor/wolfram/js/plugins/contact.js" ></script>
-    <script defer type="text/javascript" src="vendor/wolfram/js/custom_classic.js" ></script>
+
     <script defer type="text/javascript" src="vendor/wolfram/js/custom.js" ></script>
 
     <!-- APP JS -->
     <script defer type="text/javascript" src="dist/lyceum.js"></script>
 
   </head>
-  <body class="classic" data-spy="scroll" data-target=".scrollspy_menu">
+  <body>
 
     <!-- PRELOADER -->
     <div class="preloader">
       <img src="vendor/wolfram/img/preloader.gif" alt="Loading..." class="preloader__img">
     </div>
 
+    <!-- BACKGROUND PATTERN -->
+    <div class="bg-pattern"></div>
+
+    <!-- BACKSTRETCH CAROUSEL -->
+    <div class="backstretch-carousel"></div>
+
     <!-- NAVBAR -->
-    <div class="navbar navbar-default navbar__initial navbar-fixed-top scrollspy_menu" role="navigation">
+    <div class="navbar navbar-default navbar__initial navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -62,13 +72,13 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="fullpage__nav nav navbar-nav navbar-right">
-            <li><a href="#welcome">Welcome</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li data-menuanchor="welcome"><a href="#welcome">Welcome</a></li>
+            <li data-menuanchor="about"><a href="#about">About</a></li>
+            <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
+            <li data-menuanchor="pricing"><a href="#pricing">Pricing</a></li>
+            <li data-menuanchor="team"><a href="#team">Team</a></li>
+            <li data-menuanchor="features"><a href="#features">Features</a></li>
+            <li data-menuanchor="contact"><a href="#contact">Contact Us</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -96,20 +106,22 @@
 
       <!-- Sidebar links -->
       <ul class="fullpage__nav sidebar-menu__ul nav">
-        <li><a href="#welcome">Welcome</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li data-menuanchor="welcome"><a href="#welcome">Welcome</a></li>
+        <li data-menuanchor="about"><a href="#about">About</a></li>
+        <li data-menuanchor="portfolio"><a href="#portfolio">Portfolio</a></li>
+        <li data-menuanchor="pricing"><a href="#pricing">Pricing</a></li>
+        <li data-menuanchor="team"><a href="#team">Team</a></li>
+        <li data-menuanchor="features"><a href="#features">Features</a></li>
+        <li data-menuanchor="contact"><a href="#contact">Contact Us</a></li>
       </ul>
 
     </div> <!-- / .sidebar-menu__ul -->
 
-    <!-- WELCOME -->
-    <div class="welcome_classic" id="welcome">
-      <div class="welcome-classic__inner">
+    <!-- FULLPAGE.JS CONTAINER -->
+    <div id="fullpage">
+
+      <!-- WELCOME -->
+      <div class="site-wrapper">
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
@@ -125,24 +137,23 @@
 
               <!-- Sub heading -->
               <p class="heading__sub">
-                A community page by Angelika Jaroz and Jeff Revesz
+                A community page by Angelika Jarosz and Jeff Revesz
               </p>
 
               <!-- Button -->
               <div class="text-center">
-
                 <a href="#about" class="btn btn-xl btn-primary">
                   <span class="oi oi-arrow-right" title="Find out more" aria-hidden="true"></span>
                   <span>Find Out More</span>
                 </a>
-
               </div>
-
-            </div>
+            </div><!-- / .col -->
           </div> <!-- / .row -->
         </div> <!-- / .container -->
-      </div> <!-- / .classic-welcome__inner -->
-    </div> <!-- / .welcome_classic -->
+      </div> <!-- / .site-wrapper -->
+
+
+    </div> <!-- / .fullpage -->
 
     <!-- <section ui-view></section> -->
   </body>
