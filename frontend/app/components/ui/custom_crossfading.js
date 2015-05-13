@@ -6,10 +6,9 @@ $(window).load(function() {
     // Init Backstretch
 
     $(".backstretch-carousel").backstretch([
-        "static/img/angel.png",
-        "static/img/draft.png",
-        "vendor/wolfram/img/screen-bg_3.jpg",   
-        "vendor/wolfram/img/screen-bg_4.jpg",   
+        "static/img/myrtle_broadway_new.jpg",
+        "static/img/modern.jpg",
+        "static/img/conference_hall.png",
         "vendor/wolfram/img/screen-bg_5.jpg",   
         "vendor/wolfram/img/screen-bg_6.jpg", 
         "vendor/wolfram/img/screen-bg_7.jpg" 
@@ -22,7 +21,7 @@ $(window).load(function() {
     $('#fullpage').fullpage({
 
         // Navigation
-        anchors: ['welcome', 'about', 'portfolio', 'pricing', 'team', 'features', 'contact'],
+        anchors: ['welcome', 'about', 'portfolio', 'team', 'features', 'contact'],
         menu: '.fullpage__nav',
 
         // Custom selectors
